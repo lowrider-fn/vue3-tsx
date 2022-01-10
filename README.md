@@ -1,6 +1,4 @@
-# Vue3-tsx
-
-## [Demo](https://lowrider-fn.github.io/vue3-tsx/).
+# Vue3-tsx. [Demo](https://lowrider-fn.github.io/vue3-tsx/).
 
 ## Команды
 ```bash
