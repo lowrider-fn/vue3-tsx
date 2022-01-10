@@ -1,6 +1,6 @@
 module.exports = {
   devServer: { open: true },
-  publicPath: '/',
+  publicPath: (process.env.NODE_ENV === 'production' && '/vue3-tsx/') || '/',
 
   outputDir: 'docs',
 
