@@ -1,4 +1,5 @@
 import { AuthMutation } from './interfaces';
+import { safeJsonParce } from './utils';
 
 import type { AuthModule } from './interfaces';
 
@@ -19,7 +20,7 @@ export const auth: AuthModule = {
     },
 
     async checkLogin({ commit }) {
-      if (JSON.parse(localStorage.getItem('auth') || '')) {
+      if (safeJsonParce<boolean>(localStorage.getItem('auth'))) {
         await commit(AuthMutation.LOGIN);
       }
     },

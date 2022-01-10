@@ -2,7 +2,7 @@ module.exports = {
   "*.{ts,tsx,js}": [
     'yarn lint'
   ],
-  "*.{css,scss,sass}": [
+  "src/**/*.{css,scss,sass}": [
     'yarn stylelint'
   ],
   "styled.ts": [

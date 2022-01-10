@@ -1,3 +1,5 @@
+import { safeJsonParce } from '../auth/utils';
+
 import { NewsMutation } from './interfaces';
 import { findById } from './utils';
 import json from './data.json';
@@ -13,10 +15,10 @@ export const news: NewsModule = {
   },
   actions: {
     getNews: ({ commit }) => {
-      const data = localStorage.getItem('news');
+      const data = safeJsonParce<Array<NewsType>>(localStorage.getItem('news'));
 
-      if (data && data.length > 0) {
-        commit(NewsMutation.SAVE_NEWS, JSON.parse(data));
+      if (data) {
+        commit(NewsMutation.SAVE_NEWS, data);
       } else {
         commit(NewsMutation.SAVE_NEWS, <Array<NewsType>>json);
 
