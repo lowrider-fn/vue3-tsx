@@ -1,0 +1,23 @@
+.header {
+  position: sticky;
+  z-index: $z-index-min;
+  top: 0;
+  background: $white;
+  box-shadow: $shadow-gray;
+}
+
+.inner {
+  @include inner;
+
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2rem;
+
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.list {
+  display: flex;
+}

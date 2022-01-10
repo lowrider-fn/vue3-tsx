@@ -1,0 +1,12 @@
+.form {
+  width: 100%;
+  max-width: 40rem;
+}
+
+.style {
+  @extend .form;
+
+  padding: 2rem;
+  border-radius: $br;
+  box-shadow: $shadow-gray;
+}

@@ -1,0 +1,134 @@
+
+.button {
+  border-width: 0.1rem;
+  border-style: solid;
+  border-radius: $br;
+  text-transform: uppercase;
+}
+
+.btn {
+  @extend .button;
+
+  padding: 0.7rem 1.5rem;
+}
+
+.info {
+  @extend .btn;
+
+  border-color: $blue;
+  color: $blue;
+
+  @include hover-focus {
+    border-color: $blue;
+    background: $blue;
+    color: $white;
+  }
+
+  &:active {
+    border-color: $blue;
+    background: $blue;
+    color: $white;
+  }
+}
+
+.danger {
+  @extend .btn;
+
+  border-color: $red;
+  color: $red;
+
+  @include hover-focus {
+    border-color: $red;
+    background: $red;
+    color: $white;
+  }
+
+  &:active {
+    border-color: $red;
+    background: $red;
+    color: $white;
+  }
+}
+
+.success {
+  @extend .btn;
+
+  border-color: $green;
+  color: $green;
+
+  @include hover-focus {
+    border-color: $green;
+    background: $green;
+    color: $white;
+  }
+
+  &:active {
+    border-color: $green;
+    background: $green;
+    color: $white;
+  }
+}
+
+.link {
+  @extend .button;
+
+  padding: 0.7rem 1.5rem;
+  border-color: transparent;
+}
+
+.link-warn {
+  @extend .link;
+
+  color: $orange;
+
+  @include hover-focus {
+    border-color: $orange;
+  }
+
+  &:active {
+    border-color: $orange;
+  }
+}
+
+.link-danger {
+  @extend .link;
+
+  color: $red;
+
+  @include hover-focus {
+    border-color: $red;
+  }
+
+  &:active {
+    border-color: $red;
+  }
+}
+
+.link-success {
+  @extend .link;
+
+  color: $green;
+
+  @include hover-focus {
+    border-color: $green;
+  }
+
+  &:active {
+    border-color: $green;
+  }
+}
+
+.link-info {
+  @extend .link;
+
+  border: none;
+  color: $blue;
+
+  @include hover-focus {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}

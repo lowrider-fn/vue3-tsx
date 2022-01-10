@@ -1,0 +1,23 @@
+.link {
+  display: inline-block;
+  color: $blue;
+
+  @include hover-focus {
+    opacity: 0.6;
+  }
+
+  @include mobile {
+    padding: 1rem;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.routerLink {
+  @extend .link;
+
+  padding: 0.7rem 1.5rem;
+  text-transform: uppercase;
+}

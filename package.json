@@ -1,0 +1,58 @@
+{
+  "name": "vue3-tsx",
+  "version": "0.1.0",
+  "private": true,
+  "keywords": [
+    "vue",
+    "vue3 tsx",
+    "vue 3",
+    "vuex 4",
+    "vue typescript",
+    "vuex typescript"
+  ],
+  "scripts": {
+    "postinstall": "husky install && chmod ug+x .husky/*",
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "eslint --quiet --fix --ext .js,.ts,.tsx .",
+    "stylelint": "stylelint '**/*.scss' --fix",
+    "types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/parser": "^5.9.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-airbnb": "^6.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.6.0",
+    "eslint-plugin-destructure-depth": "^1.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-typescript-sort-keys": "^2.1.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "eslint-plugin-vuejs-accessibility": "^1.1.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^4.1.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.1",
+    "typescript": "^4.5.4"
+  }
+}

@@ -1,0 +1,5 @@
+.main {
+  @include inner;
+
+  @extend .scroll;
+}

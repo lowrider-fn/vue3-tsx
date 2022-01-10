@@ -1,0 +1,67 @@
+
+.text {
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.h1 {
+  @extend .text;
+
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: -0.1rem;
+  line-height: 1;
+}
+
+.h2 {
+  @extend .text;
+
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: -0.1rem;
+  line-height: 1;
+}
+
+.h3 {
+  @extend .text;
+
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.regular {
+  @extend .text;
+
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.small {
+  @extend .text;
+
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.medium {
+  font-weight: 400;
+}

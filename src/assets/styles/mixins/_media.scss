@@ -1,0 +1,37 @@
+@mixin tablet {
+  @media (min-width: 76.8rem) and (max-width: 10.23rem) {
+    @content;
+  }
+}
+
+@mixin tablet-mini {
+  @media (min-width: 50rem) and (max-width: 76.7rem) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 49.9rem) {
+    @content;
+  }
+}
+
+@mixin hover-focus {
+  @media screen and (min-width: 10.25rem) {
+    &:focus {
+      @content;
+    }
+
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hover {
+  @media screen and (min-width: 10.25rem) {
+    &:hover {
+      @content;
+    }
+  }
+}

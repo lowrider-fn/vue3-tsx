@@ -1,0 +1,27 @@
+.mask {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: $black-mask;
+}
+
+.modal {
+  width: 100%;
+  max-width: 40rem;
+  max-height: 80vh;
+  padding: 3rem  2rem;
+  background-color: $white;
+  border-radius: $br;
+
+  & h3 {
+    text-align: center;
+  }
+
+  @extend .scroll;
+}
