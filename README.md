@@ -16,6 +16,9 @@ yarn stylelint
 
 # проверка типов
 yarn types
+
+# переустанавливает зависимости
+yarn reinstall
 ```
 
 ### Ресурсы

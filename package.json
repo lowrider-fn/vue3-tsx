@@ -16,7 +16,8 @@
     "build": "vue-cli-service build",
     "lint": "eslint --quiet --fix --ext .js,.ts,.tsx .",
     "stylelint": "stylelint '**/*.scss' --fix",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "reinstall": "yarn cache clean --force && rm -rf node_modules yarn.lock && yarn"
   },
   "dependencies": {
     "core-js": "^3.6.5",
