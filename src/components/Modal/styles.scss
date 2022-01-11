@@ -14,12 +14,15 @@
 .modal {
   width: 100%;
   max-width: 40rem;
-  max-height: 80vh;
   padding: 3rem  2rem;
   background-color: $white;
   border-radius: $br;
 
   @extend .scroll;
+
+  @include mobile {
+    max-height: 100vh;
+  }
 }
 
 .title {
