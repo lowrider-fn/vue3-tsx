@@ -19,9 +19,10 @@
   background-color: $white;
   border-radius: $br;
 
-  & h3 {
-    text-align: center;
-  }
-
   @extend .scroll;
+}
+
+.title {
+  margin: 0 0 2rem;
+  text-align: center;
 }

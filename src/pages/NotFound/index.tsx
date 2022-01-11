@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router';
 
 import { Text } from '@/components/Text';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 export const NotFound = defineComponent(() => {
   const { meta } = useRoute();

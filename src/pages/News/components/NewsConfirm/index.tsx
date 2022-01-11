@@ -1,13 +1,13 @@
 import { Button } from '@/components/Button';
 import { Modal } from '@/components/Modal';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { NewsConfirmProps } from './interfaces';
 
 export const NewsConfirm = ({
   onClose,
-  onConfirm,
+  onConfirm
 }: NewsConfirmProps) => (
   <Modal
     title='Вы уверенны в удалении?'
@@ -27,7 +27,7 @@ export const NewsConfirm = ({
             onClick={onClose}
           />
         </div>
-      ),
+      )
     }}
   />
 );

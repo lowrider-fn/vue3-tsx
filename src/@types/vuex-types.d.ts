@@ -8,7 +8,7 @@ declare module 'vuex-types' {
     Module as BaseModule,
     MutationTree,
     ActionTree,
-    GetterTree,
+    GetterTree
   } from 'vuex';
   import type { DataType } from 'vue';
 

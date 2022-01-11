@@ -11,8 +11,8 @@ export const store = createStore({
   plugins,
   modules: {
     auth,
-    news,
-  },
+    news
+  }
 });
 
 export const useStore = () => store as Store;

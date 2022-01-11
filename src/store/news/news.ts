@@ -1,4 +1,6 @@
-import { safeJsonParce } from '../auth/utils';
+import dayjs from 'dayjs';
+
+import { Storage } from '@/utils';
 
 import { NewsMutation } from './interfaces';
 import { findById } from './utils';
@@ -11,18 +13,18 @@ export const news: NewsModule = {
   mutations: {
     SAVE_NEWS: (state, news) => { state.news = news; },
     ADD_NEWS: (state, form) => state.news.push(form),
-    DELETE_NEWS: (state, i) => state.news.splice(i, 1),
+    DELETE_NEWS: (state, i) => state.news.splice(i, 1)
   },
   actions: {
     getNews: ({ commit }) => {
-      const data = safeJsonParce<Array<NewsType>>(localStorage.getItem('news'));
+      const data = Storage.getData<Array<NewsType>>('news');
 
       if (data) {
         commit(NewsMutation.SAVE_NEWS, data);
       } else {
         commit(NewsMutation.SAVE_NEWS, <Array<NewsType>>json);
 
-        localStorage.setItem('news', JSON.stringify(json));
+        Storage.setData('news', json);
       }
     },
 
@@ -33,7 +35,7 @@ export const news: NewsModule = {
 
       findById(news, call, form.id);
 
-      localStorage.setItem('news', JSON.stringify(news));
+      Storage.setData('news', news);
     },
 
     addNews: (store, form) => {
@@ -41,7 +43,7 @@ export const news: NewsModule = {
 
       store.commit(NewsMutation.ADD_NEWS, form);
 
-      localStorage.setItem('news', JSON.stringify(news));
+      Storage.setData('news', news);
     },
 
     updateNews: (store, form) => {
@@ -56,14 +58,12 @@ export const news: NewsModule = {
 
       findById(news, call, form.id);
 
-      localStorage.setItem('news', JSON.stringify(news));
-    },
+      Storage.setData('news', news);
+    }
   },
   getters: {
     NEWS(state) {
-      const toTimeStamp = (date: string) => Date.parse(new Date(date).toString());
-
-      return state.news.sort((a, b) => toTimeStamp(b.date) - toTimeStamp(a.date));
-    },
-  },
+      return state.news.sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
+    }
+  }
 };

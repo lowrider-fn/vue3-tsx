@@ -1,43 +1,26 @@
-import { defineComponent, h } from 'vue';
+import { h } from 'vue';
 
-import { TextTag, TextType } from './interfaces';
-import c from './styles.module.scss';
+import { classes } from '@/utils';
 
-import type { PropType } from 'vue';
-import type { TextWeight } from './interfaces';
+import c from './styles.scss';
 
-export const Text = defineComponent({
-  name: 'Text',
-  props: {
-    type: {
-      type: String as PropType<keyof typeof TextType>,
-      default: TextType.regular,
-    },
-    tag: {
-      type: String as PropType<keyof typeof TextTag>,
-      default: TextTag.p,
-    },
-    weight: String as PropType<keyof typeof TextWeight>,
-    value: {
-      type: [Number, String],
-      requred: true,
-      default: '',
-    },
-    class: {
-      type: String,
-      default: '',
-    },
-    ellipsis: Boolean,
+import type { TextProps } from './interfaces';
 
-    margin: String,
-  },
-  setup(props) {
-    return () => (
-      h(props.tag, {
-        class: `${c[props.type]} ${(props.ellipsis && c.ellipsis) || ''} ${(props.weight && c[props.weight]) || ''} ${props.class}`,
-        style: { margin: props.margin },
-      }, props.value)
+export const Text = ({
+  type = 'regular',
+  tag = 'p',
+  weight,
+  value,
+  ellipsis,
+  margin,
+  className
+}: TextProps) => (
+  h(tag, {
+    class: classes(c[type], {
+      [c.ellipsis]: Boolean(ellipsis),
+      [c[String(weight)]]: Boolean(weight)
+    }, className),
+    style: { margin }
+  }, value)
+);
 
-    );
-  },
-});

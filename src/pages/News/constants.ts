@@ -10,5 +10,5 @@ export const DEFAULT_FORM: DataType<typeof NewsField, NewsType> = {
   [NewsField.description]: '',
   [NewsField.url]: '',
   [NewsField.urlToImage]: '',
-  [NewsField.date]: '',
+  [NewsField.date]: ''
 };

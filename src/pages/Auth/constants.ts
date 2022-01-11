@@ -5,5 +5,5 @@ import type { AuthData } from '@/store';
 
 export const DEFAULT_FORM: DataType<typeof AuthField, AuthData> = {
   [AuthField.login]: '',
-  [AuthField.password]: '',
+  [AuthField.password]: ''
 };

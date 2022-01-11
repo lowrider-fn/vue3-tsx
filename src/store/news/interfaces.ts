@@ -3,7 +3,7 @@ import type {
   Mutation,
   AugmentedStore,
   AugmentedModule,
-  Action,
+  Action
 } from 'vuex-types';
 import type { RootState } from '../interfaces';
 
@@ -60,7 +60,7 @@ export type NewsActions<C extends { commit: unknown }> = {
 };
 
 export enum NewsGetter {
-  NEWS = 'NEWS',
+  NEWS = 'NEWS'
 }
 
 export type NewsGetters = {

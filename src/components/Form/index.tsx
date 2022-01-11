@@ -1,11 +1,11 @@
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { FormProps } from './interfaces';
 
-export const Form = ({ hasStyles, slot, onSubmit }: FormProps) => {
+export const Form = ({ hasStyles, slot, onSend }: FormProps) => {
   const handleSubmit = (e: Event) => {
     e.preventDefault();
-    onSubmit();
+    onSend();
   };
 
   return (

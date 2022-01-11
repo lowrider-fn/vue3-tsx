@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import { Text } from '../Text';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { ModalProps } from './interfaces';
 import type { ChangeEvent } from 'vue';
@@ -11,7 +11,7 @@ import type { ChangeEvent } from 'vue';
 export const Modal = ({
   title,
   onClose,
-  slot,
+  slot
 }: ModalProps) => {
   const modalRef = ref<HTMLDivElement | null>(null);
 
@@ -28,7 +28,7 @@ export const Modal = ({
           tag="h3"
           type="h3"
           value={title}
-          margin='0 0 2rem'
+          className={c.title}
         />
         {slot.default()}
       </div>

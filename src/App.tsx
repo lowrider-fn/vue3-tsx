@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { useStore, AuthAction, AuthGetter } from '@/store';
 
 import { RoutePath } from './router';
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 export const App = defineComponent(() => {
   const { getters, dispatch } = useStore();

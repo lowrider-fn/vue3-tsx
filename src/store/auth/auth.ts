@@ -1,5 +1,6 @@
+import { Storage } from '@/utils';
+
 import { AuthMutation } from './interfaces';
-import { safeJsonParce } from './utils';
 
 import type { AuthModule } from './interfaces';
 
@@ -11,24 +12,24 @@ export const auth: AuthModule = {
     },
     LOGOUT: state => {
       state.isAuth = false;
-    },
+    }
   },
   actions: {
     login: ({ commit }, data) => {
-      localStorage.setItem('auth', JSON.stringify(data));
+      Storage.setData('auth', data);
       commit(AuthMutation.LOGIN);
     },
 
     async checkLogin({ commit }) {
-      if (safeJsonParce<boolean>(localStorage.getItem('auth'))) {
+      if (Storage.getData<boolean>('auth')) {
         await commit(AuthMutation.LOGIN);
       }
     },
 
     logout: ({ commit }) => {
-      localStorage.removeItem('auth');
+      Storage.clear();
       commit(AuthMutation.LOGOUT);
-    },
+    }
   },
-  getters: { IS_AUTH: state => state.isAuth },
+  getters: { IS_AUTH: state => state.isAuth }
 };

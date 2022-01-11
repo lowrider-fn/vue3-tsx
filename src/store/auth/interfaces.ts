@@ -3,13 +3,13 @@ import type {
   Mutation,
   AugmentedStore,
   AugmentedModule,
-  Action,
+  Action
 } from 'vuex-types';
 import type { RootState } from '../interfaces';
 
 export enum AuthField {
   login = 'login',
-  password = 'password',
+  password = 'password'
 }
 export interface AuthData {
   password: string;
@@ -35,7 +35,7 @@ type AuthActionsContext = AugmentedActionContext<AuthState, RootState, typeof Au
 export enum AuthAction {
   checkLogin = 'checkLogin',
   login = 'login',
-  logout = 'logout',
+  logout = 'logout'
 }
 
 export type AuthActions<C extends { commit: unknown }> = {
@@ -45,7 +45,7 @@ export type AuthActions<C extends { commit: unknown }> = {
 };
 
 export enum AuthGetter {
-  IS_AUTH = 'IS_AUTH',
+  IS_AUTH = 'IS_AUTH'
 }
 
 export type AuthGetters = {

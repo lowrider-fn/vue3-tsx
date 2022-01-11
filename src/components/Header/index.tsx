@@ -2,7 +2,7 @@ import { RouterLink } from '../Link';
 import { Button } from '../Button';
 
 import { LINKS } from './constants';
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { HeaderProps } from './interfaces';
 

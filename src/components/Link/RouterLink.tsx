@@ -2,7 +2,7 @@ import { RouterLink as RouterLinkBase } from 'vue-router';
 
 import { Text } from '../Text';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { LinkProps } from './interfaces';
 

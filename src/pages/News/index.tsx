@@ -6,7 +6,7 @@ import { NewsAction, NewsGetter, useStore } from '@/store';
 import { Text } from '@/components/Text';
 import { useToggle, useForm } from '@/hooks';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 import { DEFAULT_FORM } from './constants';
 import { NewsItem } from './components/NewsItem';
 import { NewsConfirm } from './components/NewsConfirm';
@@ -43,13 +43,10 @@ export const News = defineComponent(() => {
 
   const handleDelete = (news: NewsType) => {
     setForm(news);
-
     toggleShowingConfirm();
   };
 
-  const handleSubmit = () => {
-    console.log(form.value);
-
+  const handleSend = () => {
     dispatch((isEdit.value && NewsAction.updateNews) || NewsAction.addNews, form.value);
     toggleShowingForm();
   };
@@ -100,7 +97,7 @@ export const News = defineComponent(() => {
                 isEdit={isEdit.value}
                 form={form.value}
                 onClose={toggleShowingForm}
-                onSubmit={handleSubmit}
+                onSend={handleSend}
                 onChange={setFormField}
               />
             )

@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import { Text } from '../Text';
 
 import { FieldType, FieldTag } from './interfaces';
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { FieldProps } from './interfaces';
 import type { ChangeEvent } from 'vue';
@@ -16,7 +16,7 @@ export const Field = <T,>({
   name,
   placeholder,
   label,
-  onChange,
+  onChange
 }: FieldProps<T>) => {
   const id = v4();
 
@@ -36,7 +36,7 @@ export const Field = <T,>({
           value,
           type,
           class: c[tag],
-          onChange: handleChange,
+          onChange: handleChange
         })
       }
     </div>

@@ -3,7 +3,8 @@ import { createApp } from 'vue';
 import { App } from './App';
 import { router } from './router/router';
 import { store } from './store';
-import './assets/styles/fonts.css';
+import './assets/fonts/fonts.css';
+import './assets/styles/_normalize.scss';
 
 createApp(App)
   .use(store)

@@ -6,29 +6,27 @@ import { Field } from '@/components/Field';
 import { Form } from '@/components/Form';
 import { Modal } from '@/components/Modal';
 import { NewsField } from '@/store';
+import { dayjs } from '@/utils/';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 
 import type { NewsFormProps } from './interfaces';
 
 export const NewsForm = ({
   isEdit,
   form,
-  onSubmit,
+  onSend,
   onClose,
-  onChange,
+  onChange
 }: NewsFormProps) => {
-  const handleSubmit = () => {
-    const d = new Date();
-    const timezone = d.getTime() - d.getTimezoneOffset() * 60000;
-    const [date] = new Date(timezone).toISOString().split('.');
-    onChange(date, NewsField.date);
+  const handleSend = () => {
+    onChange(dayjs().toISOString(), NewsField.date);
 
     if (!isEdit) {
       onChange(v4(), NewsField.id);
     }
 
-    onSubmit();
+    onSend();
   };
 
   return (
@@ -38,7 +36,7 @@ export const NewsForm = ({
       slot={{
         default: () => (
           <Form
-            onSubmit={handleSubmit}
+            onSend={handleSend}
             slot={{
               default: () => (
                 <>
@@ -98,10 +96,10 @@ export const NewsForm = ({
                     />
                   </div>
                 </>
-              ),
+              )
             }}
           />
-        ),
+        )
       }}
     />
   );

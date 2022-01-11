@@ -9,7 +9,7 @@ import { Text } from '@/components/Text';
 import { Form } from '@/components/Form';
 import { useForm } from '@/hooks';
 
-import c from './styles.module.scss';
+import c from './styles.scss';
 import { DEFAULT_FORM } from './constants';
 
 import type { AuthData } from '@/store';
@@ -21,7 +21,7 @@ const Auth = defineComponent(() => {
   const { push } = useRouter();
   const { form, setFormField } = useForm<typeof AuthField, AuthData>(DEFAULT_FORM);
 
-  const handleSubmit = () => {
+  const handleSend = () => {
     dispatch(AuthAction.login, form.value);
 
     push({ path: RoutePath.NewsEditing });
@@ -38,7 +38,7 @@ const Auth = defineComponent(() => {
 
       <Form
         hasStyles
-        onSubmit={handleSubmit}
+        onSend={handleSend}
         slot={{
           default: () => (
             <>
@@ -66,7 +66,7 @@ const Auth = defineComponent(() => {
                 />
               </div>
             </>
-          ),
+          )
         }}
       />
     </div>

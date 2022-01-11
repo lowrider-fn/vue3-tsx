@@ -24,6 +24,6 @@ export const useToggle = (val = false) => {
     toggleShowing,
     handleClose,
     handleOpen,
-    setIsShow,
+    setIsShow
   };
 };
