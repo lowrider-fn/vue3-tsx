@@ -27,3 +27,4 @@ yarn reinstall
 - [Vue 3: CompositionAPI + Typescript эксперименты](https://habr.com/ru/post/557928/)
 - [Vue 3 JSX Design](https://github.com/vuejs/jsx/issues/141)
 - [Vue 3, Vuex 4 Modules, Typescript](https://dev.to/shubhadip/vue-3-vuex-4-modules-typescript-2i2o)
+- [useState and useReducer with the Vue 3 Composition API](https://markus.oberlehner.net/blog/usestate-and-usereducer-with-the-vue-3-composition-api/)

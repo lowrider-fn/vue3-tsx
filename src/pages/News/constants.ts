@@ -1,9 +1,6 @@
 import { NewsField } from '@/store';
 
-import type { DataType } from 'vue';
-import type { NewsType } from '@/store';
-
-export const DEFAULT_FORM: DataType<typeof NewsField, NewsType> = {
+export const DEFAULT_FORM = {
   [NewsField.name]: '',
   [NewsField.id]: '',
   [NewsField.title]: '',

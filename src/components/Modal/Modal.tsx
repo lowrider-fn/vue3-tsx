@@ -22,7 +22,7 @@ export const Modal = ({
   };
 
   return (
-    <div ref={modalRef} class={c.mask} onClick={handleClose}>
+    <div ref={modalRef} class={c.mask} onMousedown={handleClose}>
       <div class={c.modal}>
         <Text
           tag="h3"

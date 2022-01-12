@@ -1,10 +1,9 @@
-import type { FormProps } from '@/components/Form/interfaces';
-import type { NewsType, NewsField } from '@/store';
+import type { NewsType } from '@/store';
 
-export interface NewsFormProps extends Pick<FormProps, 'onSend'> {
+export interface NewsFormProps {
   title?: string;
   isEdit: boolean;
-  form: NewsType;
+  data: NewsType;
   onClose: () => void;
-  onChange: (value: string, name: NewsField) => void;
+  onSend: (data: NewsType) => void;
 }

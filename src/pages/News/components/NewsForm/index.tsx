@@ -7,26 +7,29 @@ import { Form } from '@/components/Form';
 import { Modal } from '@/components/Modal';
 import { NewsField } from '@/store';
 import { dayjs } from '@/utils/';
+import { useForm } from '@/hooks';
 
 import c from './styles.scss';
 
+import type { NewsType } from '@/store';
 import type { NewsFormProps } from './interfaces';
 
 export const NewsForm = ({
   isEdit,
-  form,
+  data,
   onSend,
-  onClose,
-  onChange
+  onClose
 }: NewsFormProps) => {
+  const { form, setFormField } = useForm<typeof NewsField, NewsType>(data);
+
   const handleSend = () => {
-    onChange(dayjs().toISOString(), NewsField.date);
+    setFormField(dayjs().toISOString(), NewsField.date);
 
     if (!isEdit) {
-      onChange(v4(), NewsField.id);
+      setFormField(v4(), NewsField.id);
     }
 
-    onSend();
+    onSend(form.value);
   };
 
   return (
@@ -43,43 +46,43 @@ export const NewsForm = ({
                   <Field
                     name={NewsField.name}
                     label="Введите источник"
-                    value={form.name}
+                    value={form.value.name}
                     placeholder='Введите источник'
-                    onChange={onChange}
+                    onChange={setFormField}
                   />
 
                   <Field
                     name={NewsField.title}
                     tag='textarea'
                     label='Введите заголовок'
-                    value={form.title}
+                    value={form.value.title}
                     placeholder='Введите заголовок'
-                    onChange={onChange}
+                    onChange={setFormField}
                   />
 
                   <Field
                     name={NewsField.description}
                     tag='textarea'
                     label='Описание'
-                    value={form.description}
+                    value={form.value.description}
                     placeholder='Введите описание'
-                    onChange={onChange}
+                    onChange={setFormField}
                   />
 
                   <Field
                     name={NewsField.url}
                     label='Ссылка на новость'
-                    value={form.url}
+                    value={form.value.url}
                     placeholder='Ввыедите ссылку '
-                    onChange={onChange}
+                    onChange={setFormField}
                   />
 
                   <Field
                     name={NewsField.urlToImage}
                     label='Путь до картинки'
-                    value={form.urlToImage}
+                    value={form.value.urlToImage}
                     placeholder='Введите путь'
-                    onChange={onChange}
+                    onChange={setFormField}
                   />
 
                   <div class={c.controls}>

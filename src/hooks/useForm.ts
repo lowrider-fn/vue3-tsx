@@ -1,16 +1,12 @@
-import { ref } from 'vue';
+import { useState } from './useState';
 
 import type { DataType } from 'vue';
 
 export const useForm = <E, T extends DataType<E, T>,>(data: T) => {
-  const form = ref<T>({ ...data });
-
-  const setForm = (data: T) => {
-    form.value = { ...data };
-  };
+  const [form, setForm] = useState(data);
 
   const setFormField = <T>(value: T, name: keyof E) => {
-    form.value = { ...form.value, ...{ [name]: value } };
+    setForm({ ...form.value, ...{ [name]: value } });
   };
 
   return {

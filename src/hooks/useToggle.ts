@@ -1,23 +1,13 @@
-import { ref } from 'vue';
+import { useState } from './useState';
 
 export const useToggle = (val = false) => {
-  const isShow = ref(val);
+  const [isShow, setIsShow] = useState(val);
 
-  const setIsShow = (val: boolean) => {
-    isShow.value = val;
-  };
+  const handleClose = () => setIsShow(false);
 
-  const handleClose = () => {
-    isShow.value = false;
-  };
+  const handleOpen = () => setIsShow(true);
 
-  const handleOpen = () => {
-    isShow.value = true;
-  };
-
-  const toggleShowing = () => {
-    isShow.value = !isShow.value;
-  };
+  const toggleShowing = () => setIsShow(!isShow.value);
 
   return {
     isShow,

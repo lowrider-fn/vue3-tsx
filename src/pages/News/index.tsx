@@ -4,7 +4,8 @@ import { useRoute } from 'vue-router';
 import { Button } from '@/components/Button';
 import { useStore } from '@/store';
 import { Text } from '@/components/Text';
-import { useToggle, useForm } from '@/hooks';
+import { useToggle } from '@/hooks';
+import { useState } from '@/hooks/useState';
 
 import c from './styles.scss';
 import { DEFAULT_FORM } from './constants';
@@ -12,13 +13,13 @@ import { NewsItem } from './components/NewsItem';
 import { NewsConfirm } from './components/NewsConfirm';
 import { NewsForm } from './components/NewsForm';
 
-import type { NewsType, NewsField } from '@/store';
+import type { NewsType } from '@/store';
 
 export const News = defineComponent(() => {
   const { getters, dispatch } = useStore();
   const { meta } = useRoute();
 
-  const { form, setForm, setFormField } = useForm<typeof NewsField, NewsType>(DEFAULT_FORM);
+  const [form, setForm] = useState(DEFAULT_FORM);
 
   const { isShow: isShowConfirm, toggleShowing: toggleShowingConfirm } = useToggle();
   const { isShow: isShowForm, toggleShowing: toggleShowingForm } = useToggle();
@@ -46,8 +47,8 @@ export const News = defineComponent(() => {
     toggleShowingConfirm();
   };
 
-  const handleSend = () => {
-    dispatch((isEdit.value && 'updateNews') || 'addNews', form.value);
+  const handleSend = (news: NewsType) => {
+    dispatch((isEdit.value && 'updateNews') || 'addNews', news);
     toggleShowingForm();
   };
 
@@ -95,10 +96,9 @@ export const News = defineComponent(() => {
             isShowForm.value && (
               <NewsForm
                 isEdit={isEdit.value}
-                form={form.value}
+                data={form.value}
                 onClose={toggleShowingForm}
                 onSend={handleSend}
-                onChange={setFormField}
               />
             )
           )
