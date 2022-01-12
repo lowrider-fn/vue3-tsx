@@ -1,7 +1,5 @@
 import { Storage } from '@/utils';
 
-import { AuthMutation } from './interfaces';
-
 import type { AuthModule } from './interfaces';
 
 export const auth: AuthModule = {
@@ -17,18 +15,19 @@ export const auth: AuthModule = {
   actions: {
     login: ({ commit }, data) => {
       Storage.setData('auth', data);
-      commit(AuthMutation.LOGIN);
+
+      commit('LOGIN');
     },
 
     async checkLogin({ commit }) {
       if (Storage.getData<boolean>('auth')) {
-        await commit(AuthMutation.LOGIN);
+        commit('LOGIN');
       }
     },
 
     logout: ({ commit }) => {
       Storage.clear();
-      commit(AuthMutation.LOGOUT);
+      commit('LOGOUT');
     }
   },
   getters: { IS_AUTH: state => state.isAuth }

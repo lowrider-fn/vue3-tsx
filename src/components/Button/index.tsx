@@ -1,13 +1,12 @@
 import { Text } from '../Text';
 
 import c from './styles.scss';
-import { ButtonMode, ButtonType } from './interfaces';
 
 import type { ButtonProps } from './interfaces';
 
 export const Button = ({
-  mode = ButtonMode.info,
-  type = ButtonType.button,
+  mode = 'info',
+  type = 'button',
   text,
   onClick
 }: ButtonProps) => (

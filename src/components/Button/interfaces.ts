@@ -1,7 +1,4 @@
-export enum ButtonType {
-  button = 'button',
-  submit = 'submit'
-}
+
 export enum ButtonMode {
   button = 'button',
   danger = 'danger',
@@ -15,7 +12,7 @@ export enum ButtonMode {
 
 export interface ButtonProps {
   text: string;
-  type?: keyof typeof ButtonType;
+  type?: 'button' | 'submit';
   mode?: keyof typeof ButtonMode;
   onClick?: () => void;
 }

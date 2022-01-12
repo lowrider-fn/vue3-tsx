@@ -2,7 +2,7 @@ import { defineComponent, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 import { Button } from '@/components/Button';
-import { NewsAction, NewsGetter, useStore } from '@/store';
+import { useStore } from '@/store';
 import { Text } from '@/components/Text';
 import { useToggle, useForm } from '@/hooks';
 
@@ -25,7 +25,7 @@ export const News = defineComponent(() => {
   const { isShow: isEdit, setIsShow: setIsEdit } = useToggle();
 
   onMounted(() => {
-    dispatch(NewsAction.getNews);
+    dispatch('getNews');
   });
 
   const handleEdit = (news?: NewsType) => {
@@ -37,7 +37,7 @@ export const News = defineComponent(() => {
   };
 
   const handleConfirm = () => {
-    dispatch(NewsAction.deleteNews, form.value);
+    dispatch('deleteNews', form.value);
     toggleShowingConfirm();
   };
 
@@ -47,7 +47,7 @@ export const News = defineComponent(() => {
   };
 
   const handleSend = () => {
-    dispatch((isEdit.value && NewsAction.updateNews) || NewsAction.addNews, form.value);
+    dispatch((isEdit.value && 'updateNews') || 'addNews', form.value);
     toggleShowingForm();
   };
 
@@ -70,7 +70,7 @@ export const News = defineComponent(() => {
       </div>
 
       {
-        getters[NewsGetter.NEWS].map((news, i) => (
+        getters.NEWS.map((news, i) => (
           <NewsItem
             key={i}
             news={news}

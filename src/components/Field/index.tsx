@@ -3,15 +3,14 @@ import { v4 } from 'uuid';
 
 import { Text } from '../Text';
 
-import { FieldType, FieldTag } from './interfaces';
 import c from './styles.scss';
 
 import type { FieldProps } from './interfaces';
 import type { ChangeEvent } from 'vue';
 
 export const Field = <T,>({
-  type = FieldType.text,
-  tag = FieldTag.input,
+  type = 'text',
+  tag = 'input',
   value,
   name,
   placeholder,

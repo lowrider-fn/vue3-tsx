@@ -3,7 +3,7 @@ import { defineComponent } from 'vue';
 
 import { Button } from '@/components/Button';
 import { Field } from '@/components/Field';
-import { AuthAction, useStore, AuthField } from '@/store';
+import { useStore, AuthField } from '@/store';
 import { RoutePath } from '@/router';
 import { Text } from '@/components/Text';
 import { Form } from '@/components/Form';
@@ -22,7 +22,7 @@ const Auth = defineComponent(() => {
   const { form, setFormField } = useForm<typeof AuthField, AuthData>(DEFAULT_FORM);
 
   const handleSend = () => {
-    dispatch(AuthAction.login, form.value);
+    dispatch('login', form.value);
 
     push({ path: RoutePath.NewsEditing });
   };

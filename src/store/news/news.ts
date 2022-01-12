@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 
 import { Storage } from '@/utils';
 
-import { NewsMutation } from './interfaces';
 import { findById } from './utils';
 import json from './data.json';
 
@@ -11,19 +10,17 @@ import type { NewsModule, NewsType } from './interfaces';
 export const news: NewsModule = {
   state: { news: [] },
   mutations: {
-    SAVE_NEWS: (state, news) => { state.news = news; },
-    ADD_NEWS: (state, form) => state.news.push(form),
-    DELETE_NEWS: (state, i) => state.news.splice(i, 1)
+    SAVE_NEWS(state, news) {
+      state.news = news;
+    }
   },
   actions: {
     getNews: ({ commit }) => {
       const data = Storage.getData<Array<NewsType>>('news');
 
-      if (data) {
-        commit(NewsMutation.SAVE_NEWS, data);
-      } else {
-        commit(NewsMutation.SAVE_NEWS, <Array<NewsType>>json);
+      commit('SAVE_NEWS', data || <Array<NewsType>>json);
 
+      if (!data) {
         Storage.setData('news', json);
       }
     },
@@ -31,17 +28,20 @@ export const news: NewsModule = {
     deleteNews: (store, form) => {
       const { news } = store.state;
 
-      const call = (i: number) => store.commit(NewsMutation.DELETE_NEWS, i);
+      const call = (i: number) => {
+        news.splice(i, 1);
+        Storage.setData('news', news);
+      };
 
       findById(news, call, form.id);
 
-      Storage.setData('news', news);
+      store.dispatch('getNews');
     },
 
     addNews: (store, form) => {
       const { news } = store.state;
 
-      store.commit(NewsMutation.ADD_NEWS, form);
+      news.push(form);
 
       Storage.setData('news', news);
     },
@@ -50,15 +50,14 @@ export const news: NewsModule = {
       const { news } = store.state;
 
       const call = (i: number) => {
-        const arr = news;
+        news.splice(i, 1, form);
 
-        arr.splice(i, 1, form);
-        store.commit(NewsMutation.SAVE_NEWS, arr);
+        Storage.setData('news', news);
       };
 
       findById(news, call, form.id);
 
-      Storage.setData('news', news);
+      store.dispatch('getNews');
     }
   },
   getters: {

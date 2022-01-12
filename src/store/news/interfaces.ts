@@ -31,47 +31,23 @@ export type NewsState = {
   news: Array<NewsType>;
 };
 
-export enum NewsMutation {
-  ADD_NEWS = 'ADD_NEWS',
-  DELETE_NEWS = 'DELETE_NEWS',
-  SAVE_NEWS = 'SAVE_NEWS'
-}
-
 export type NewsMutations<S = NewsState> = {
-  [NewsMutation.SAVE_NEWS]: Mutation<S, Array<NewsType>>;
-  [NewsMutation.ADD_NEWS]: Mutation<S, NewsType>;
-  [NewsMutation.DELETE_NEWS]: Mutation<S, number>;
+  SAVE_NEWS: Mutation<S, Array<NewsType>>;
 };
 
-type NewsActionsContext = AugmentedActionContext<NewsState, RootState, typeof NewsMutation, NewsMutations>;
-
-export enum NewsAction {
-  addNews = 'addNews',
-  deleteNews = 'deleteNews',
-  getNews = 'getNews',
-  updateNews = 'updateNews'
-}
-
-export type NewsActions<C extends { commit: unknown }> = {
-  [NewsAction.getNews]: Action<C>;
-  [NewsAction.deleteNews]: Action<C, NewsType>;
-  [NewsAction.updateNews]: Action<C, NewsType>;
-  [NewsAction.addNews]: Action<C, NewsType>;
+export type NewsActions<C = unknown> = {
+  getNews: Action<C>;
+  deleteNews: Action<C, NewsType>;
+  updateNews: Action<C, NewsType>;
+  addNews: Action<C, NewsType>;
 };
 
-export enum NewsGetter {
-  NEWS = 'NEWS'
-}
+type NewsActionsContext = AugmentedActionContext<NewsState, RootState, NewsMutations, NewsActions>;
 
 export type NewsGetters = {
-  [NewsGetter.NEWS]: (state: NewsState) => Array<NewsType>;
+  NEWS: (state: NewsState) => Array<NewsType>;
 };
 
-export type NewsStore<S = NewsState> = AugmentedStore<
-S,
-	typeof NewsMutation, NewsMutations<S>,
-	typeof NewsAction, NewsActions<NewsActionsContext>,
-	typeof NewsGetter, NewsGetters
->;
+export type NewsStore<S = NewsState> = AugmentedStore<S, NewsMutations<S>, NewsActions<NewsActionsContext>, NewsGetters>;
 
 export type NewsModule = AugmentedModule<NewsState, RootState, NewsMutations, NewsActions<NewsActionsContext>, NewsGetters>;

@@ -20,43 +20,23 @@ export type AuthState = {
   isAuth: boolean;
 };
 
-export enum AuthMutation {
-  LOGIN = 'LOGIN',
-  LOGOUT = 'LOGOUT'
-}
-
 export type AuthMutations<S = AuthState> = {
-  [AuthMutation.LOGIN]: Mutation<S>;
-  [AuthMutation.LOGOUT]: Mutation<S>;
+  LOGIN: Mutation<S>;
+  LOGOUT: Mutation<S>;
 };
 
-type AuthActionsContext = AugmentedActionContext<AuthState, RootState, typeof AuthMutation, AuthMutations>;
-
-export enum AuthAction {
-  checkLogin = 'checkLogin',
-  login = 'login',
-  logout = 'logout'
-}
-
-export type AuthActions<C extends { commit: unknown }> = {
-  [AuthAction.login]: Action<C, AuthData>;
-  [AuthAction.checkLogin]: Action<C, undefined, Promise<void>>;
-  [AuthAction.logout]: Action<C>;
+export type AuthActions<C = unknown> = {
+  login: Action<C, AuthData>;
+  checkLogin: Action<C, undefined, Promise<void>>;
+  logout: Action<C>;
 };
 
-export enum AuthGetter {
-  IS_AUTH = 'IS_AUTH'
-}
+type AuthActionsContext = AugmentedActionContext<AuthState, RootState, AuthMutations, AuthActions>;
 
 export type AuthGetters = {
-  [AuthGetter.IS_AUTH]: (state: AuthState) => boolean;
+  IS_AUTH: (state: AuthState) => boolean;
 };
 
-export type AuthStore<S = AuthState> = AugmentedStore<
-S,
-  typeof AuthMutation, AuthMutations<S>,
-  typeof AuthAction, AuthActions<AuthActionsContext>,
-  typeof AuthGetter, AuthGetters
->;
+export type AuthStore<S = AuthState> = AugmentedStore<S, AuthMutations<S>, AuthActions<AuthActionsContext>, AuthGetters>;
 
 export type AuthModule = AugmentedModule<AuthState, RootState, AuthMutations, AuthActions<AuthActionsContext>, AuthGetters>;

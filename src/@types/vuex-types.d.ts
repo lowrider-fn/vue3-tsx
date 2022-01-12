@@ -1,6 +1,4 @@
 declare module 'vuex-types' {
-  import { createStore, createLogger } from 'vuex';
-
   import type {
     ActionContext as ActionContextBase,
     CommitOptions, DispatchOptions,
@@ -10,30 +8,23 @@ declare module 'vuex-types' {
     ActionTree,
     GetterTree
   } from 'vuex';
-  import type { DataType } from 'vue';
-
-  export { createStore, createLogger };
+  import type { SelfDocDataType } from 'vue';
 
   // Mutation
   export type Mutation<S, P = undefined> = (state: S, payload: P) => void;
 
-  type Commit<E, M extends DataType<E, M>> = {
+  export type Commit<M extends SelfDocDataType<M>> = {
     commit<K extends keyof M, P extends Parameters<M[K]>[1]>(
       key: K,
-      payload: P,
+      payload?: P,
       options?: CommitOptions
     ): ReturnType<M[K]>;
-
   };
 
   // Actions
-  export type AugmentedActionContext<S, R, E, M extends DataType<E, M>> = {
-    commit: <K extends keyof M> (key: K, payload?: Parameters<M[K]>[1]) => ReturnType<M[K]>;
-  } & Omit<ActionContextBase<S, R>, 'commit'>;
+  export type Action<C, D = undefined, R = void> = (context: C, data: D) => R;
 
-  export type Action<C extends { commit: unknown }, D = undefined, R = void> = ({ commit }: C, data: D) => R;
-
-  type Dispatch<E, A extends DataType<E, A>> = {
+  type Dispatch<A extends SelfDocDataType<A>> = {
     dispatch<K extends keyof A>(
       key: K,
       payload?: Parameters<A[K]>[1],
@@ -41,25 +32,19 @@ declare module 'vuex-types' {
     ): ReturnType<A[K]>;
   };
 
+  export type AugmentedActionContext<S, R, M, A> = Commit<M> & Dispatch<A> & Omit<ActionContextBase<S, R>, 'commit' | 'dispatch'>;
+
   // Getter
   type Getter = (state: any) => any;
 
-  type Getters<E, G extends DataType<E, G>> = {
+  type Getters<G extends SelfDocDataType<G>> = {
     getters: {
       [K in keyof G]: ReturnType<G[K]>
     };
   };
 
   // Main
-  export type AugmentedStore<
-    S,
-    EM, M extends DataType<EM, Mutation<S>>,
-    EA, A extends DataType<EA, any>,
-    EG, G extends DataType<EG, Getter>
-  > = Omit<StoreBase<S>, 'getters' | 'commit' | 'dispatch'>
-  & Commit<EM, M>
-  & Dispatch<EA, A>
-  & Getters<EG, G>;
+  export type AugmentedStore<S, M, A, G> = Omit<StoreBase<S>, 'getters' | 'commit' | 'dispatch'> & Commit<M> & Dispatch<A> & Getters<G>;
 
   export type AugmentedModule<S, R, M, A, G> = BaseModule<S, R> & {
     state?: S;
