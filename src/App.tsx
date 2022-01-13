@@ -22,11 +22,11 @@ export const App = defineComponent(() => {
   });
 
   return () => (
-    <div id="app">
+    <>
       <Header isAuth={getters.IS_AUTH} onLogout={handleLogout} />
       <main class={c.main}>
         <RouterView key={route.fullPath} />
       </main>
-    </div>
+    </>
   );
 });

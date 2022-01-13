@@ -2,4 +2,6 @@
   @include inner;
 
   @extend .scroll;
+
+  height: calc(100% - 7rem);
 }
