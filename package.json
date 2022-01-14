@@ -1,7 +1,11 @@
 {
   "name": "vue3-tsx",
   "version": "0.1.0",
-  "private": true,
+  "description": "Vue 3/Vuex/Vue-router/Typescript example",
+  "author": {
+    "name": "Sergeiy Dolmatskiy",
+    "email": "sergey.dolmatskiy@gmail.com"
+  },
   "keywords": [
     "vue",
     "vue3 tsx",

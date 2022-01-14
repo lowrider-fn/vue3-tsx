@@ -1,6 +1,5 @@
 
 export enum ButtonMode {
-  button = 'button',
   danger = 'danger',
   info = 'info',
   'link-danger' = 'link-danger',
