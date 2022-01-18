@@ -1,7 +1,9 @@
 .main {
-  @include inner;
-
   @extend .scroll;
 
   height: calc(100% - 7rem);
+}
+
+.inner {
+  @include inner;
 }

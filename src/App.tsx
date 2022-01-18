@@ -25,7 +25,9 @@ export const App = defineComponent(() => {
     <>
       <Header isAuth={getters.IS_AUTH} onLogout={handleLogout} />
       <main class={c.main}>
-        <RouterView key={route.fullPath} />
+        <div class={c.inner}>
+          <RouterView key={route.fullPath} />
+        </div>
       </main>
     </>
   );
