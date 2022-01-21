@@ -11,8 +11,8 @@ export const LINKS = [
     auth: true
   },
   {
-    path: RoutePath.Auth,
-    text: 'Авторизоваться',
+    path : RoutePath.Auth,
+    text : 'Авторизоваться',
     guest: true
   },
   {

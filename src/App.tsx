@@ -23,10 +23,10 @@ export const App = defineComponent(() => {
 
   return () => (
     <>
-      <Header isAuth={getters.IS_AUTH} onLogout={handleLogout} />
-      <main class={c.main}>
-        <div class={c.inner}>
-          <RouterView key={route.fullPath} />
+      <Header isAuth={ getters.IS_AUTH } onLogout={ handleLogout } />
+      <main class={ c.main }>
+        <div class={ c.inner }>
+          <RouterView key={ route.fullPath } />
         </div>
       </main>
     </>

@@ -8,7 +8,7 @@ import json from './data.json';
 import type { NewsModule, NewsType } from './interfaces';
 
 export const news: NewsModule = {
-  state: { news: [] },
+  state    : { news: [] },
   mutations: {
     SAVE_NEWS(state, news) {
       state.news = news;

@@ -53,31 +53,31 @@ export const News = defineComponent(() => {
   };
 
   return () => (
-    <div class={c.news}>
-      <div class={c.control}>
+    <div class={ c.news }>
+      <div class={ c.control }>
         <Text
           tag="h1"
           type='h1'
-          value={meta.title}
+          value={ meta.title }
         />
 
-        {meta.auth && (
+        { meta.auth && (
           <Button
             mode="success"
             text='Создать'
-            onClick={handleEdit}
+            onClick={ handleEdit }
           />
-        )}
+        ) }
       </div>
 
       {
         getters.NEWS.map((news, i) => (
           <NewsItem
-            key={i}
-            news={news}
-            hasAuthRoute={meta.auth}
-            onDelete={handleDelete}
-            onEdit={handleEdit}
+            key={ i }
+            news={ news }
+            hasAuthRoute={ meta.auth }
+            onDelete={ handleDelete }
+            onEdit={ handleEdit }
           />
         ))
       }
@@ -87,22 +87,22 @@ export const News = defineComponent(() => {
           (
             isShowConfirm.value && (
               <NewsConfirm
-                onClose={toggleShowingConfirm}
-                onConfirm={handleConfirm}
+                onClose={ toggleShowingConfirm }
+                onConfirm={ handleConfirm }
               />
             )
           )
           || (
             isShowForm.value && (
               <NewsForm
-                isEdit={isEdit.value}
-                data={form.value}
-                onClose={toggleShowingForm}
-                onSend={handleSend}
+                isEdit={ isEdit.value }
+                data={ form.value }
+                onClose={ toggleShowingForm }
+                onSend={ handleSend }
               />
             )
           )
-        )}
+        ) }
     </div>
   );
 });

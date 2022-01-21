@@ -22,15 +22,15 @@ export const Modal = ({
   };
 
   return (
-    <div ref={modalRef} class={c.mask} onMousedown={handleClose}>
-      <div class={c.modal}>
+    <div ref={ modalRef } class={ c.mask } onMousedown={ handleClose }>
+      <div class={ c.modal }>
         <Text
           tag="h3"
           type="h3"
-          value={title}
-          className={c.title}
+          value={ title }
+          className={ c.title }
         />
-        {slot.default()}
+        { slot.default() }
       </div>
     </div>
 

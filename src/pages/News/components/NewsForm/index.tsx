@@ -34,58 +34,58 @@ export const NewsForm = ({
 
   return (
     <Modal
-      title={(isEdit && 'Редактирование новости') || 'Создание новости'}
-      onClose={onClose}
-      slot={{
+      title={ (isEdit && 'Редактирование новости') || 'Создание новости' }
+      onClose={ onClose }
+      slot={ {
         default: () => (
           <Form
-            onSend={handleSend}
-            slot={{
+            onSend={ handleSend }
+            slot={ {
               default: () => (
                 <>
                   <Field
-                    name={NewsField.name}
+                    name={ NewsField.name }
                     label="Введите источник"
-                    value={form.value.name}
+                    value={ form.value.name }
                     placeholder='Введите источник'
-                    onChange={setFormField}
+                    onChange={ setFormField }
                   />
 
                   <Field
-                    name={NewsField.title}
+                    name={ NewsField.title }
                     tag='textarea'
                     label='Введите заголовок'
-                    value={form.value.title}
+                    value={ form.value.title }
                     placeholder='Введите заголовок'
-                    onChange={setFormField}
+                    onChange={ setFormField }
                   />
 
                   <Field
-                    name={NewsField.description}
+                    name={ NewsField.description }
                     tag='textarea'
                     label='Описание'
-                    value={form.value.description}
+                    value={ form.value.description }
                     placeholder='Введите описание'
-                    onChange={setFormField}
+                    onChange={ setFormField }
                   />
 
                   <Field
-                    name={NewsField.url}
+                    name={ NewsField.url }
                     label='Ссылка на новость'
-                    value={form.value.url}
+                    value={ form.value.url }
                     placeholder='Ввыедите ссылку '
-                    onChange={setFormField}
+                    onChange={ setFormField }
                   />
 
                   <Field
-                    name={NewsField.urlToImage}
+                    name={ NewsField.urlToImage }
                     label='Путь до картинки'
-                    value={form.value.urlToImage}
+                    value={ form.value.urlToImage }
                     placeholder='Введите путь'
-                    onChange={setFormField}
+                    onChange={ setFormField }
                   />
 
-                  <div class={c.controls}>
+                  <div class={ c.controls }>
                     <Button
                       mode="info"
                       type="submit"
@@ -95,15 +95,15 @@ export const NewsForm = ({
                     <Button
                       mode="danger"
                       text='Отмена'
-                      onClick={onClose}
+                      onClick={ onClose }
                     />
                   </div>
                 </>
               )
-            }}
+            } }
           />
         )
-      }}
+      } }
     />
   );
 };

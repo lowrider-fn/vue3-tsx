@@ -1,6 +1,6 @@
-import { AuthField } from '@/store';
+import type { AuthData } from '@/store';
 
-export const DEFAULT_FORM = {
-  [AuthField.login]: '',
-  [AuthField.password]: ''
+export const DEFAULT_FORM: AuthData = {
+  login   : '',
+  password: ''
 };

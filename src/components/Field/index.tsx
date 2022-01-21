@@ -8,7 +8,7 @@ import c from './styles.scss';
 import type { FieldProps } from './interfaces';
 import type { ChangeEvent } from 'vue';
 
-export const Field = <T,>({
+export const Field = <T, >({
   type = 'text',
   tag = 'input',
   value,
@@ -22,10 +22,9 @@ export const Field = <T,>({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value, name);
 
   return (
-    <div class={c.field}>
-      <label class={c.label} for={id}>
-        <Text type='small' value={label} />
-
+    <div class={ c.field }>
+      <label class={ c.label } for={ id }>
+        <Text type='small' value={ label } />
       </label>
 
       {
@@ -34,7 +33,7 @@ export const Field = <T,>({
           placeholder,
           value,
           type,
-          class: c[tag],
+          class   : c[tag],
           onChange: handleChange
         })
       }

@@ -9,11 +9,11 @@ export const NotFound = defineComponent(() => {
   const { meta } = useRoute();
 
   return () => (
-    <div class={c.page}>
+    <div class={ c.page }>
       <Text
         tag="h1"
         type='h1'
-        value={meta.title}
+        value={ meta.title }
         margin='0 0 1.5rem'
       />
     </div>

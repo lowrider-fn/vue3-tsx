@@ -11,24 +11,24 @@ export const NewsConfirm = ({
 }: NewsConfirmProps) => (
   <Modal
     title='Вы уверенны в удалении?'
-    onClose={onClose}
-    slot={{
+    onClose={ onClose }
+    slot={ {
       default: () => (
-        <div class={c.buttons}>
+        <div class={ c.buttons }>
           <Button
             mode='danger'
             text='Удалить'
-            onClick={onConfirm}
+            onClick={ onConfirm }
           />
 
           <Button
             mode='success'
             text='Отмена'
-            onClick={onClose}
+            onClick={ onClose }
           />
         </div>
       )
-    }}
+    } }
   />
 );
 

@@ -11,14 +11,14 @@ export const Button = ({
   onClick
 }: ButtonProps) => (
   <button
-    class={c[mode]}
-    type={type}
-    onClick={onClick}
+    class={ c[mode] }
+    type={ type }
+    onClick={ onClick }
   >
     <Text
       type='small'
       weight="bold"
-      value={text}
+      value={ text }
     />
   </button>
 );

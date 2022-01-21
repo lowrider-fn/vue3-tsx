@@ -3,7 +3,7 @@ import { Storage } from '@/utils';
 import type { AuthModule } from './interfaces';
 
 export const auth: AuthModule = {
-  state: { isAuth: false },
+  state    : { isAuth: false },
   mutations: {
     LOGIN: state => {
       state.isAuth = true;

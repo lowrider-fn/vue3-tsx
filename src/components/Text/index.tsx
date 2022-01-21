@@ -17,7 +17,7 @@ export const Text = ({
 }: TextProps) => (
   h(tag, {
     class: classes(c[type], {
-      [c.ellipsis]: Boolean(ellipsis),
+      [c.ellipsis]       : Boolean(ellipsis),
       [c[String(weight)]]: Boolean(weight)
     }, className),
     style: { margin }

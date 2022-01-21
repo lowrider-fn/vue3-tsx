@@ -28,37 +28,37 @@ const Auth = defineComponent(() => {
   };
 
   return () => (
-    <div class={c.auth}>
+    <div class={ c.auth }>
       <Text
         tag="h1"
         type='h1'
-        value={meta.title}
+        value={ meta.title }
         margin='0 0 2rem'
       />
 
       <Form
         hasStyles
-        onSend={handleSend}
-        slot={{
+        onSend={ handleSend }
+        slot={ {
           default: () => (
             <>
               <Field
-                name={AuthField.login}
+                name={ AuthField.login }
                 label='Логин'
-                value={form.value.login}
+                value={ form.value.login }
                 placeholder='Введите логин'
-                onChange={setFormField}
+                onChange={ setFormField }
               />
               <Field
-                name={AuthField.password}
+                name={ AuthField.password }
                 label='Пароль'
                 type='password'
-                value={form.value.password}
+                value={ form.value.password }
                 placeholder="Введите пароль"
-                onChange={setFormField}
+                onChange={ setFormField }
               />
 
-              <div class={c.controls}>
+              <div class={ c.controls }>
                 <Button
                   type='submit'
                   mode="info"
@@ -67,7 +67,7 @@ const Auth = defineComponent(() => {
               </div>
             </>
           )
-        }}
+        } }
       />
     </div>
   );

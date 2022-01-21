@@ -13,46 +13,46 @@ export const NewsItem = ({
   onDelete,
   onEdit
 }: NewsItemProps) => (
-  <div class={c.item}>
+  <div class={ c.item }>
     <Text
       tag="h2"
       type='h2'
-      value={news.title}
+      value={ news.title }
       margin='0 0 1.2rem'
     />
 
     <Text
-      className={c.date}
+      className={ c.date }
       type='small'
-      value={dayjs(news.date).format(DDMMMMYYYYhhmm)}
+      value={ dayjs(news.date).format(DDMMMMYYYYhhmm) }
     />
 
-    <div class={c.description}>
-      <Text value={news.description} margin='0 0 1.5rem' />
+    <div class={ c.description }>
+      <Text value={ news.description } margin='0 0 1.5rem' />
 
-      <Link to={news.url} text={`Читать подробнее ${news.name}`} />
+      <Link to={ news.url } text={ `Читать подробнее ${news.name}` } />
 
     </div>
 
     <img
-      class={c.img}
-      src={news.urlToImage}
-      alt={news.name}
+      class={ c.img }
+      src={ news.urlToImage }
+      alt={ news.name }
     />
 
     {
       hasAuthRoute && (
-        <div class={c.controls}>
+        <div class={ c.controls }>
           <Button
             text='Редактировать'
             mode="link-warn"
-            onClick={() => onEdit(news)}
+            onClick={ () => onEdit(news) }
           />
 
           <Button
             text='Удалить'
             mode="link-danger"
-            onClick={() => onDelete(news)}
+            onClick={ () => onDelete(news) }
           />
         </div>
       )

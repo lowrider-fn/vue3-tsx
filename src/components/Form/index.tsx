@@ -9,8 +9,8 @@ export const Form = ({ hasStyles, slot, onSend }: FormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} class={(hasStyles && c.style) || c.form}>
-      {slot.default()}
+    <form onSubmit={ handleSubmit } class={ (hasStyles && c.style) || c.form }>
+      { slot.default() }
     </form>
   );
 };

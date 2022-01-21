@@ -7,15 +7,21 @@ import c from './styles.scss';
 import type { HeaderProps } from './interfaces';
 
 export const Header = ({ isAuth, onLogout }: HeaderProps) => (
-  <header class={c.header}>
-    <nav class={c.inner}>
-      <ul class={c.list}>
+  <header class={ c.header }>
+    <nav class={ c.inner }>
+      <ul class={ c.list }>
         {
-          LINKS.filter(({ auth, guest }) => (isAuth ? !guest : !auth)).map(({ text, path }, i) => (
-            <li class={c.item} key={i}>
+          LINKS.filter(({ auth, guest }) => ((!isAuth && auth) || guest)).map(({ text, path }, i) => (
+            <li class={ c.item } key={ i }>
               {
-                (path && <RouterLink to={path} text={text} />)
-                || <Button mode="link-info" onClick={onLogout} text={text} />
+                (path && <RouterLink to={ path } text={ text } />)
+                || (
+                  <Button
+                    text={ text }
+                    mode="link-info"
+                    onClick={ onLogout }
+                  />
+                )
               }
             </li>
           ))
