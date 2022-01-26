@@ -175,7 +175,6 @@ module.exports = {
     ],
     'no-multi-spaces'     : 'error',
     'no-shadow'           : 'off',
-    'no-ternary'          : 'error',
     'no-underscore-dangle': 'off',
     'object-curly-newline': [
       'error',

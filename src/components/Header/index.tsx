@@ -11,7 +11,7 @@ export const Header = ({ isAuth, onLogout }: HeaderProps) => (
     <nav class={ c.inner }>
       <ul class={ c.list }>
         {
-          LINKS.filter(({ auth, guest }) => ((!isAuth && auth) || guest)).map(({ text, path }, i) => (
+          LINKS.filter(({ auth, guest }) => (!isAuth ? !auth : !guest)).map(({ text, path }, i) => (
             <li class={ c.item } key={ i }>
               {
                 (path && <RouterLink to={ path } text={ text } />)
