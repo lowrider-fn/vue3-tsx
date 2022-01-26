@@ -9,6 +9,10 @@ html {
 html {
   overflow: hidden;
   font-size: 62.5%;
+
+  @include mobile {
+    font-size: 50%;
+  }
 }
 
 body {

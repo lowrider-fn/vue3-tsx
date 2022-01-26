@@ -4,7 +4,7 @@ import { App } from './App';
 import { router } from './router/router';
 import { store } from './store';
 import './assets/fonts/styles.css';
-import './assets/styles/normalize.css';
+import './assets/styles/normalize.scss';
 
 createApp(App)
   .use(store)
