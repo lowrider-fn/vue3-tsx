@@ -9,7 +9,7 @@
   padding: 0 0 0.4rem 0.4rem;
 }
 
-.field-area {
+%field-area {
   padding: 0.7rem 0.5rem;
   border: solid 0.1rem $blue;
   border-radius: $br;
@@ -30,11 +30,11 @@
 }
 
 .input {
-  @extend .field-area;
+  @extend %field-area;
 }
 
 .textarea {
-  @extend .field-area;
+  @extend %field-area;
 
   min-height: 8rem;
 }

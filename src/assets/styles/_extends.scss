@@ -1,28 +1,28 @@
-.scroll {
+%scroll {
   overflow-x: auto;
   overflow-y: auto;
   scrollbar-color: transparent transparent;
   scrollbar-width: thin;
-}
 
-.scroll::-webkit-scrollbar {
-  width: 0.6rem;
-  background-color: transparent;
-}
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+    background-color: transparent;
+  }
 
-.scroll::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 0.3rem;
-}
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 0.3rem;
+  }
 
-.scroll:hover {
-  scrollbar-color: $grey-light transparent;
-}
+  &:hover {
+    scrollbar-color: $grey-light transparent;
+  }
 
-.scroll:hover::-webkit-scrollbar-thumb {
-  background-color: $grey-light;
-}
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: $grey-light;
+  }
 
-.scroll::-webkit-scrollbar:horizontal {
-  height: 0.6rem;
+  &::-webkit-scrollbar:horizontal {
+    height: 0.6rem;
+  }
 }

@@ -12,13 +12,13 @@
 }
 
 .modal {
+  @extend %scroll;
+
   width: 100%;
   max-width: 40rem;
   padding: 3rem  2rem;
   background-color: $white;
   border-radius: $br;
-
-  @extend .scroll;
 
   @include mobile {
     max-height: 100vh;

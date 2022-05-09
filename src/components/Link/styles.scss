@@ -1,4 +1,4 @@
-.link {
+%link {
   display: inline-block;
   color: $blue;
 
@@ -11,8 +11,12 @@
   }
 }
 
+.link {
+  @extend %link;
+}
+
 .routerLink {
-  @extend .link;
+  @extend %link;
 
   padding: 0.7rem 1.5rem;
   text-transform: uppercase;

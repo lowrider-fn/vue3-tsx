@@ -1,5 +1,5 @@
 
-.text {
+%text {
   font-family: $main-font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,7 +13,7 @@
 }
 
 .h1 {
-  @extend .text;
+  @extend %text;
 
   font-size: 3.2rem;
   font-weight: 400;
@@ -22,7 +22,7 @@
 }
 
 .h2 {
-  @extend .text;
+  @extend %text;
 
   font-size: 2.6rem;
   font-weight: 400;
@@ -31,7 +31,7 @@
 }
 
 .h3 {
-  @extend .text;
+  @extend %text;
 
   font-size: 2.2rem;
   font-weight: 400;
@@ -39,7 +39,7 @@
 }
 
 .regular {
-  @extend .text;
+  @extend %text;
 
   font-size: 1.6rem;
   font-weight: 400;
@@ -47,7 +47,7 @@
 }
 
 .small {
-  @extend .text;
+  @extend %text;
 
   font-size: 1.4rem;
   font-weight: 400;

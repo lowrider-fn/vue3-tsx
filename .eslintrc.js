@@ -11,7 +11,6 @@ module.exports = {
   ],
   plugins: [
     'react',
-    'import',
     'destructure-depth',
     'typescript-sort-keys'
   ],

@@ -1,5 +1,5 @@
 .main {
-  @extend .scroll;
+  @extend %scroll;
 
   height: calc(100vh - 7rem);
 }

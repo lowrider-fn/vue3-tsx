@@ -1,10 +1,10 @@
-.form {
+%form {
   width: 100%;
   max-width: 40rem;
 }
 
 .style {
-  @extend .form;
+  @extend %form;
 
   padding: 2rem;
   border-radius: $br;

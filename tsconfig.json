@@ -40,6 +40,9 @@
   "types": [
     "webpack-env"
   ],
+  "include": [
+    "src"
+  ],
   "exclude": [
     "docs",
     ".vscode",
